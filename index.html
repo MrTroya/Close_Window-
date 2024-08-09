@@ -2,14 +2,18 @@
 <html>
 <head>
     <title>Cerrar ventana</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            window.open('', '_self', ''); 
-            window.close();
-        };
-    </script>
 </head>
 <body>
     <p>Esta ventana se cerrará automáticamente.</p>
+    <script type="text/javascript">
+        window.onload = function() {
+            if (window.history.length > 1) {
+                window.history.go(-1); // Intentar navegar a la página anterior si existe
+            } else {
+                window.open('', '_self', ''); // Intentar abrir una ventana en blanco
+                window.close(); // Intentar cerrar la ventana
+            }
+        };
+    </script>
 </body>
-</html> 
+</html>
